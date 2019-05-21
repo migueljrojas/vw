@@ -1,0 +1,60 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+  main.reserva
+    .reserva__container
+      form.reserva__form
+        h2.reserva__form__title Ingresa tus datos
+        p.reserva__form__text Para comprar tu SEAT, deberás ingresar tus datos a continuación y pagar el valor total mediante tarjeta de crédito. una vez recibido el pago, el concesionario elegido tomará contacto contigo para indicarte los pasos a seguir para retirar tu nuevo SEAT.
+        .reserva__form__wrapper
+          .reserva__form__group
+            label.reserva__form__group-label RUT
+            .reserva__form__rut
+              input.reserva__form__input.reserva__form__input--rut-main(type="text")
+              span -
+              input.reserva__form__input.reserva__form__input--rut(type="text")
+          .reserva__form__group.reserva__form__group--half
+            label.reserva__form__group-label Nombre
+            input.reserva__form__input(type="text")
+          .reserva__form__group.reserva__form__group--half
+            label.reserva__form__group-label Apellido
+            input.reserva__form__input(type="text")
+          .reserva__form__group.reserva__form__group--half
+            label.reserva__form__group-label Celular
+            input.reserva__form__input(type="text")
+          .reserva__form__group.reserva__form__group--half
+            label.reserva__form__group-label Email
+            input.reserva__form__input(type="email")
+          .reserva__form__group
+            label.reserva__form__group-label Concesionario
+            select.reserva__form__select
+              option(selected hidden disabled) Selecciona...
+              option Concesionario 1
+              option Concesionario 2
+              option Concesionario 3
+          .reserva__form__group.reserva__form__group--checkbox
+            input.reserva__form__input.reserva__form__input--checkbox(type="checkbox" checked)
+            label.reserva__form__label Acepto términos y condiciones
+
+      .reserva__payment-details
+        h3.reserva__payment-details__subtitle Modelo a comprar
+        h2.reserva__payment-details__title Ibiza Reference MT
+        .reserva__payment-details__image
+          img(src="/images/t-cross-1.png")
+        .reserva__payment-details__payment-options
+          img(src="/images/payment-methods.png")
+        .reserva__payment-details__group
+          p Impuesto Verde
+          p $500.000
+        .reserva__payment-details__group
+          p Patente
+          p $260.000
+        .reserva__payment-details__group
+          p.-dark Precio Total
+          p.-dark $10.990.000
+        button.reserva__payment-details__total Pagar Total $10.990.000
+

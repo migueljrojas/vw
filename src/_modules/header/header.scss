@@ -146,8 +146,11 @@
         }
 
         #{$h}__nav {
-
-        }
+            opacity: 1;
+            overflow: visible;
+            width: 100%;
+            transform: translateX(0);
+       }
     }
 }
 
