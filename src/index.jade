@@ -1,6 +1,47 @@
 extends _layouts/base
 
+include ./_modules/product/product
+
 block content
     main.home
         section.home__hero
-            
+            .container
+                .row
+                    .col-24.col-md-8
+                        .home__hero__column
+                            h2.home__hero__title Reserva tu Nuevo T-Cross
+                            p.home__hero__text
+                                |Sé el primero en tener a nuestro nuevo integrante T-Cross, un modelo que se adapta a quien tú eres y aprovecha estos increíbles precios de Pre-Lanzamiento!
+                                br
+                                |Selecciona el concesionario donde quieres retirarlo y haz tu reserva abonando $500.000 CLP via WebPay.
+        section.home__products
+            .home__products__wrapper
+                .home__products__filter-group
+                    .home__products__filter-selector filtrar
+                    ul.home__products__filters
+                        li.-active(data-filter="all") Todos
+                        li(data-filter="t-cross-1") Trendline MT
+                        li(data-filter="t-cross-2") Confortline MT
+                        li(data-filter="t-cross-3") Confortline AT
+                        li(data-filter="t-cross-4") Highline AT
+                        li(data-filter="t-cross-5") Limited AT
+                        li(data-filter="t-cross-6") Edición Especial AT
+                .home__products__group
+                    a.home__products__file(href="#", target="_blank")
+                        .home__products__file-image
+                            img(src="/images/icon-download.png")
+                        p Descargar Ficha Técnica T-Cross
+                    a.home__products__file(href="#", target="_blank")
+                        .home__products__file-image
+                            img(src="/images/icon-download.png")
+                        p Descargar Ficha Técnica Edición Especial
+            .container
+                .row
+                    each item in site.data.product
+                        .col-24.col-md-8.home__products__item(data-category=item.category)
+                            +product(item)
+                    .col-24
+                        .home__products__leyend
+                            p.-half (1): Impuesto a las emisiones contaminantes.
+                            p.-half (2): Primera inscripción, SOAP y permiso de circulación.
+                            p *Precio Bono Directo Corresponde al precio de lista con un bono directo de $500.000. Precio con Financiamiento corersponde al precio de listo con bono directo de $500.000, ademas un bono de financiamiento de $500.000. Precio con Financiamiento corresponde a una simulación corresponde a producto Crédito Convencional. Volkswagen Financial Services (operado en Chile por Forum Servicios Financieros S.A).

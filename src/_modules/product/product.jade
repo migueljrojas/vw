@@ -1,0 +1,26 @@
+mixin product(data)
+  .product
+    .product__image
+      img(src=data.image)
+    .product__content
+      h2.product__title=data.title
+      p.product__description=data.color
+      p.product__comment Precio Pre-Lanzamiento
+      .product__wrapper
+        p.product__text
+          |Precio Bono Directo*
+          br
+          span $11.490.000
+        p.product__text
+          |Precio con Financiamiento*
+          br
+          span $10.990.00
+      .product__text-small
+        p Impuesto Verde: $500.000
+        span.-subindex (1)
+      .product__text-small
+        p Patente: $260.000
+        span.-subindex (2)
+      .product__buttons
+        a.product__button(href="#") Reservar
+

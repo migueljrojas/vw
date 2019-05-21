@@ -1,3 +1,184 @@
 .home {
+  @include mq(md) {
+    padding-top:  10vh;
+  }
+
+  &__hero {
+    background: url('/images/hero.jpg') no-repeat center center / cover;
     
+    @include mq(md) {
+      height: 60vh;
+    }
+
+    &__column {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      @include mq(md) {
+        height: 60vh;
+      }
+    }
+
+    &__title {
+      font-size: 50px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+
+  &__products {
+    &__wrapper {
+      background: $midGray;
+
+      @include mq(md) {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &__filter-group {
+      border-bottom: 1px solid $lightGray;
+      position: relative;
+
+      @include mq(md) {
+        display: flex;
+        align-items: center;
+        border-bottom: 0;
+      }
+    }
+
+    &__filter-selector {
+      padding: 30px 0;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      width: 30%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 45%;
+        width: 8px;
+        height: 8px;
+        border-left: 1px solid $black;
+        border-bottom: 1px solid $black;
+        transform: rotate(-45deg) translateY(-50%);
+      }
+
+      @include mq(md) {
+        display: none;
+      }
+    }
+
+    &__filters {
+      @include trans;
+
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+
+      &.-open {
+        height: 220px;
+        opacity: 1;
+      }
+      
+      @include mq(md) {
+        display: flex;
+        margin-left: 40px;
+        height: auto;
+        opacity: 1;
+      }
+
+      li {
+        color: $black;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+        padding: 0 15px;
+
+        @include mq(md) {
+          padding: 0 30px;
+          height: 70px;
+          line-height: 70px;
+        }
+
+        &.-active {
+          &:after {
+            right: 0;
+          }
+        }
+      }
+    }
+
+    &__group {
+      display: flex;
+    }
+
+    &__file {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 40px 20px 0;
+      text-decoration: none;
+      width: 245px;
+
+      p {
+        margin: 0;
+        font-size: 14px;
+        color: $white;
+        text-decoration: none;
+      }
+    }
+
+    &__file-image {
+      width: 30px;
+      margin: 0 20px;
+
+      img {
+        filter: brightness(20000%);
+        height: auto;
+        width: 100%;
+      }
+    }
+    
+    &__leyend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      
+      p {
+        text-align: center;
+        color: $darkGray;
+        font-size: 12px;
+        width: 100%;
+      }
+      .-half {
+        width: 25%;
+      }
+    }
+
+    &__item {
+      @include trans;
+
+      &.-hidden {
+        display: none;
+      }
+    }
+  }
 }

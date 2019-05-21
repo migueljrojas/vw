@@ -5,16 +5,45 @@ var Header = function() {
     var header = $('.header');
     var body = $('body');
     var menuOpen = $('.header__hamburguer');
-    var menuClose = $('.header__nav__close');
 
     menuOpen.on('click', function(){
-        header.addClass('-open');
-        body.addClass('-hideOverflow');
+        header.toggleClass('-open');
+        body.toggleClass('-hideOverflow');
     });
 
-    menuClose.on('click', function(){
-        header.removeClass('-open');
-        body.removeClass('-hideOverflow');
+    var productCategory = $('[data-category]');
+    var productFilters = $('[data-filter]');
+    var filterSelector = $('.home__products__filter-selector');
+    var filterList = $('.home__products__filters');
+
+    filterSelector.on('click', function(e){
+        e.preventDefault();
+        filterList.toggleClass('-open');
+    });
+
+    productFilters.on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var targetFilter = $this.data('filter');
+
+        console.log('hola');
+
+        filterList.removeClass('-open');
+
+        if (targetFilter === 'all') {
+            productCategory.removeClass('-hidden');   
+            productFilters.removeClass('-active');
+            $('[data-filter="'+ targetFilter +'"]').addClass('-active');
+            return;
+        }
+
+        productCategory.addClass('-hidden');
+        productFilters.removeClass('-active');        
+        $('[data-filter="'+ targetFilter +'"]').addClass('-active');
+
+        productCategory.filter(function() {
+            return $(this).data('category') === targetFilter;
+        }).removeClass('-hidden');
     });
 };
 
