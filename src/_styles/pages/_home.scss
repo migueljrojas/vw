@@ -3,7 +3,7 @@
 
   &__hero {
     background: url('/images/hero-mobile.jpg') no-repeat center bottom / cover;
-    height: 90vh;
+    height: 85vh;
   
     @include mq(md) {
       height: 60vh;
@@ -18,14 +18,23 @@
     }
 
     &__title {
-      font-size: 50px;
+      font-size: 42px;
       margin-top: 0;
       margin-bottom: 20px;
+
+      @include mq(sm) {
+        font-size: 50px;
+      }
     }
 
     &__text {
       margin: 0;
-      font-size: 20px;
+      font-size: 18px;
+      color: $darkestGray;
+
+      @include mq(sm) {
+        font-size: 20px;
+      }
     }
   }
 
