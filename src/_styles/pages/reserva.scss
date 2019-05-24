@@ -129,6 +129,7 @@
 
     &__subtitle {
       position: relative;
+      text-align: center;
       z-index: 2;
       font-weight: 500;
       margin: 0;
@@ -137,6 +138,8 @@
 
     &__title {
       position: relative;
+      text-align: center;
+      color:  $blue;
       z-index: 2;
       margin: 0;
       margin-bottom: 20px;

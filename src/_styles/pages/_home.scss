@@ -8,6 +8,7 @@
     @include mq(md) {
       height: 60vh;
       background: url('/images/hero.jpg') no-repeat center center / cover;
+      background-size: 100%;
     }
 
     &__column {
